@@ -1,0 +1,11 @@
+{
+  "name": "tictop-push-notify",
+  "version": "1.1.0",
+  "description": "Github action for Push by Tictop",
+  "dependencies": {
+    "request": "^2.88.0"
+  },
+  "scripts": {
+    "start-window": "TITLE E-LEARNING_SERVICE && node ./bin/www | \"node_modules/.bin/bunyan\""
+  }
+}
