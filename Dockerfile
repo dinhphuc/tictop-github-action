@@ -1,7 +1,7 @@
 FROM node:10.11.0-alpine
 
 COPY ./notify /notify
-
+RUN chmod +x entrypoint.sh
 ENTRYPOINT ["/notify/entrypoint.sh"]
 
 LABEL "com.github.actions.name"="Send Push Notification"
