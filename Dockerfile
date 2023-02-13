@@ -1,4 +1,4 @@
-FROM node:10.11.0-alpine
+FROM node:16.13.2-alpine
 
 COPY ./notify /notify
 RUN chmod +x "/notify/entrypoint.sh"
