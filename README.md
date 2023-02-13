@@ -8,7 +8,7 @@ Receive push notification to your devices using Github Actions
 
 To run this action you'll need:
 
-- An API key from Push (https://www.tictop.vn/)
+- An API key from Push (https://www.tictop.app/)
 
 ## Setup
 
@@ -17,10 +17,26 @@ To run this action you'll need:
 
 ```
 - name: Send Push Notification
-  uses: dinhphuc/tictop-github-action@1.0.0
+  uses: dinhphuc/tictop-github-action@main
 ```
-
-3. Add a new secret `API_KEY` (your API key) and an environment variable `MESSAGE` (notification message)
+3. Prepare API KEY
+ - Request API Key from admin tictop
+ - Generate api key include the bellow data
+```json
+{
+  "organizationCode": "ITEAL_VN",
+  "organizationId": "1235",
+  "userId": "123",
+  "groupId": "121",
+}
+```
+4. Add a new secret to environment variable
+```json
+{
+  "API_URL": "API_URL (get from admin tictop)",
+  "API_KEY": "API_KEY (get from step 3)",
+}
+```
 4. Commit your changes!
 
 ## Sample Workflows
@@ -38,11 +54,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Send Push Notification
-        uses: dinhphuc/tictop-github-action@1.0.0
+      - name: 🔔 Send Push Notification
+        uses: dinhphuc/tictop-github-action@main
         env:
-          API_KEY: ${{ secrets.API_KEY }}
-          MESSAGE: "There is a new commit!"
+            API_URL: ${{ secrets.API_URL }}
+            API_KEY: ${{ secrets.API_KEY }}
+            MESSAGE: Deploy to Alpha by @${{ github.actor }} - ${{ steps.ready_site.outputs.result }}
+            TITLE: Deploy to Alpha by @${{ github.actor }}
+            DESCRIPTION: Deploy to Alpha by @${{ github.actor }}
 ```
 
 ## Support
