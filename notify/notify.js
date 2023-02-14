@@ -27,6 +27,7 @@ const pushNotificationToTictop = async () => {
         ],
         status: 0,
         text: process.env.MESSAGE || 'No message specified',
+    }
 
     try {
         await axios.post(`${API_URL}?apiKey=${process.env.API_KEY}`, notificationData, {
