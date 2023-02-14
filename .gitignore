@@ -1,1 +1,7 @@
 notify/node_modules/
+/node_modules
+/.idea
+/.nyc_output
+/npm-debug.log
+/.env
+/.snyk
