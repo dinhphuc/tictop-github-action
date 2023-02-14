@@ -54,14 +54,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: 🚀 Out put ready site
+        id: ready_site
+        run: echo "result=Success" >> $GITHUB_OUTPUT
+        
+  notification:
+    needs: build
+    
+    runs-on: ubuntu-latest
+    if: always() # set "always"
+    
+    steps:
       - name: 🔔 Send Push Notification
         uses: dinhphuc/tictop-github-action@main
         env:
-            API_URL: ${{ secrets.API_URL }}
-            API_KEY: ${{ secrets.API_KEY }}
-            MESSAGE: Deploy to Alpha by @${{ github.actor }} - ${{ steps.ready_site.outputs.result }}
-            TITLE: Deploy to Alpha by @${{ github.actor }}
-            DESCRIPTION: Deploy to Alpha by @${{ github.actor }}
+          API_URL: ${{ secrets.API_URL }}
+          API_KEY: ${{ secrets.API_KEY }}
+          MESSAGE: Deploy to Alpha by @${{ github.actor }} - ${{ (needs.build.steps.ready_site.outputs.result == 'Success') && 'Success' || 'Failure' }}
+          TITLE: Deploy to Alpha by @${{ github.actor }}
+          DESCRIPTION: Deploy to Alpha by @${{ github.actor }}
+
 ```
 
 ## Support
