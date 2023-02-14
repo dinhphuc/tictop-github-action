@@ -70,7 +70,7 @@ jobs:
         env:
           API_URL: ${{ secrets.API_URL }}
           API_KEY: ${{ secrets.API_KEY }}
-          MESSAGE: Deploy to Alpha by @${{ github.actor }} - ${{ (needs.build.steps.ready_site.outputs.result == 'Success') && 'Success' || 'Failure' }}
+          MESSAGE: Deploy to Alpha by @${{ github.actor }} - ${{ (needs.build.result == 'success') && 'Success' || 'Failure' }}
           TITLE: Deploy to Alpha by @${{ github.actor }}
           DESCRIPTION: Deploy to Alpha by @${{ github.actor }}
 
