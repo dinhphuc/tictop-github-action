@@ -82,7 +82,7 @@ Add param to commit message for apply option.
 | Option                 | Result                                         |
 |------------------------|------------------------------------------------|
 | --no-push-notification | Skip push notification                         |
-| --add-commit-message   | Inclued commit message to content notification |
+| --add-commit-message   | Include commit message to content notification |
 
 
 ## Support
