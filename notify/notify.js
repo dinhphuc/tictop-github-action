@@ -16,10 +16,12 @@ const pushNotificationToTictop = async () => {
         console.log("--no-push-notification");
         return;
     }
-    let title = process.env.TITLE || `GitHub Notification from ${process.env.GITHUB_REPOSITORY}`;
+    const title = process.env.TITLE || `GitHub Notification from ${process.env.GITHUB_REPOSITORY}`;
+
+    let textMessage = process.env.MESSAGE || 'No message specified';
 
     if (commitMessage.endsWith("--add-commit-message")) {
-        title = `${title} - ${commitMessage.replace('--add-commit-message', '')}`
+        textMessage = `${textMessage} - ${commitMessage.replace('--add-commit-message', '')}`
     }
     const notificationData = {
         linkObjects: [
@@ -36,7 +38,7 @@ const pushNotificationToTictop = async () => {
             }
         ],
         status: 0,
-        text: process.env.MESSAGE || 'No message specified',
+        text: textMessage || 'No message specified',
     }
 
 
