@@ -75,6 +75,15 @@ jobs:
           DESCRIPTION: Deploy to Alpha by @${{ github.actor }}
 
 ```
+5. Option
+
+Add param to commit message for apply option.
+
+| Option                 | Result                                         |
+|------------------------|------------------------------------------------|
+| --no-push-notification | Skip push notification                         |
+| --add-commit-message   | Inclued commit message to content notification |
+
 
 ## Support
 
