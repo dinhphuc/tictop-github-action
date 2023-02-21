@@ -73,6 +73,7 @@ jobs:
           MESSAGE: Deploy to Alpha by @${{ github.actor }} - ${{ (needs.build.result == 'success') && 'Success' || 'Failure' }}
           TITLE: Deploy to Alpha by @${{ github.actor }}
           DESCRIPTION: Deploy to Alpha by @${{ github.actor }}
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
 
 ```
 5. Option
