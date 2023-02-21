@@ -10,7 +10,17 @@ if (!process.env.API_KEY) {
 
 const pushNotificationToTictop = async () => {
 
-    const title = process.env.TITLE || `GitHub Notification from ${process.env.GITHUB_REPOSITORY}`
+    const commitMessage = process.env.COMMIT_MESSAGE || "";
+
+    if (commitMessage.startsWith("--no-push-notification")) {
+        console.log("--no-push-notification");
+        return;
+    }
+    let title = process.env.TITLE || `GitHub Notification from ${process.env.GITHUB_REPOSITORY}`;
+
+    if (commitMessage.startsWith("--add-commit-message")) {
+        title = `${title} - ${commitMessage.replace('--add-commit-message', '')}`
+    }
     const notificationData = {
         linkObjects: [
             {
@@ -28,6 +38,7 @@ const pushNotificationToTictop = async () => {
         status: 0,
         text: process.env.MESSAGE || 'No message specified',
     }
+
 
     try {
         await axios.post(`${API_URL}?apiKey=${process.env.API_KEY}`, notificationData, {
