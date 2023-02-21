@@ -12,13 +12,13 @@ const pushNotificationToTictop = async () => {
 
     const commitMessage = process.env.COMMIT_MESSAGE || "";
 
-    if (commitMessage.startsWith("--no-push-notification")) {
+    if (commitMessage.endsWith("--no-push-notification")) {
         console.log("--no-push-notification");
         return;
     }
     let title = process.env.TITLE || `GitHub Notification from ${process.env.GITHUB_REPOSITORY}`;
 
-    if (commitMessage.startsWith("--add-commit-message")) {
+    if (commitMessage.endsWith("--add-commit-message")) {
         title = `${title} - ${commitMessage.replace('--add-commit-message', '')}`
     }
     const notificationData = {
