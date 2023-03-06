@@ -74,6 +74,8 @@ jobs:
           TITLE: Deploy to Alpha by @${{ github.actor }}
           DESCRIPTION: Deploy to Alpha by @${{ github.actor }}
           COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+          COLOR: "#4cb273"
+          SENDER_ID: 123
 
 ```
 5. Option
@@ -84,7 +86,6 @@ Add param to commit message for apply option.
 |----------|------------------------------------------------|
 | --no-ntf | Skip push notification                         |
 | --msg    | Include commit message to content notification |
-
 
 ## Support
 

@@ -2,6 +2,7 @@
 
 const axios = require('axios')
 const API_URL = process.env.API_URL;
+const SENDER_ID = process.env.SENDER_ID;
 
 
 if (!process.env.API_KEY) {
@@ -23,6 +24,8 @@ const pushNotificationToTictop = async () => {
     if (commitMessage.endsWith("--msg")) {
         textMessage = `${textMessage} - ${commitMessage.replace('--msg', '')}`
     }
+
+
     const notificationData = {
         linkObjects: [
             {
@@ -41,7 +44,17 @@ const pushNotificationToTictop = async () => {
         text: textMessage || 'No message specified',
     }
 
+    if (process.env.COLOR && SENDER_ID) {
 
+        const hex = process.env.COLOR;
+
+        notificationData['customizes'] = {
+            [SENDER_ID]: {
+                hex: hex,
+                isShowAll: process.env.COLOR_IS_SHOW_ALL ?? "true"
+            }
+        }
+    }
     try {
         await axios.post(`${API_URL}?apiKey=${process.env.API_KEY}`, notificationData, {
             headers: {
