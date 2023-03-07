@@ -3,11 +3,12 @@
 const axios = require('axios')
 const API_URL = process.env.API_URL;
 const SENDER_ID = process.env.SENDER_ID;
+const COLOR = process.env.COLOR;
 
 
-if (!process.env.API_KEY) {
-    return console.error('API KEY is missing')
-}
+// if (!process.env.API_KEY) {
+//     return console.error('API KEY is missing')
+// }
 
 const pushNotificationToTictop = async () => {
 
@@ -44,14 +45,11 @@ const pushNotificationToTictop = async () => {
         text: textMessage || 'No message specified',
     }
 
-    if (process.env.COLOR && SENDER_ID) {
-
-        const hex = process.env.COLOR;
-
+    if (COLOR && SENDER_ID) {
         notificationData['customizes'] = {
-            backgroundColor: {  
+            backgroundColor: {
                 [SENDER_ID]: {
-                    hex: hex,
+                    hex: COLOR,
                     isShowAll: process.env.COLOR_IS_SHOW_ALL ?? "true"
                 }
             }
