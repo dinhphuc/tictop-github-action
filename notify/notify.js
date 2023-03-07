@@ -49,9 +49,11 @@ const pushNotificationToTictop = async () => {
         const hex = process.env.COLOR;
 
         notificationData['customizes'] = {
-            [SENDER_ID]: {
-                hex: hex,
-                isShowAll: process.env.COLOR_IS_SHOW_ALL ?? "true"
+            backgroundColor: {  
+                [SENDER_ID]: {
+                    hex: hex,
+                    isShowAll: process.env.COLOR_IS_SHOW_ALL ?? "true"
+                }
             }
         }
     }
