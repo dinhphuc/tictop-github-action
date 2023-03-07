@@ -6,9 +6,9 @@ const SENDER_ID = process.env.SENDER_ID;
 const COLOR = process.env.COLOR;
 
 
-// if (!process.env.API_KEY) {
-//     return console.error('API KEY is missing')
-// }
+if (!process.env.API_KEY) {
+    return console.error('API KEY is missing')
+}
 
 const pushNotificationToTictop = async () => {
 
@@ -44,6 +44,8 @@ const pushNotificationToTictop = async () => {
         status: 0,
         text: textMessage || 'No message specified',
     }
+    console.log('File: notify.js - L: 47 - COLOR', COLOR);
+    console.log('File: notify.js - L: 47 - SENDER_ID', SENDER_ID);
 
     if (COLOR && SENDER_ID) {
         notificationData['customizes'] = {
@@ -55,6 +57,8 @@ const pushNotificationToTictop = async () => {
             }
         }
     }
+
+    console.log('File: notify.js - L: 61 - notificationData', JSON.stringify(notificationData));
     try {
         await axios.post(`${API_URL}?apiKey=${process.env.API_KEY}`, notificationData, {
             headers: {
