@@ -4,7 +4,7 @@ const axios = require('axios')
 const API_URL = process.env.API_URL;
 const SENDER_ID = process.env.SENDER_ID;
 const COLOR = process.env.COLOR;
-
+const API_KEY = process.env.API_KEY;
 
 if (!process.env.API_KEY) {
     return console.error('API KEY is missing')
@@ -46,7 +46,7 @@ const pushNotificationToTictop = async () => {
     }
     console.log('File: notify.js - L: 47 - COLOR', COLOR);
     console.log('File: notify.js - L: 47 - SENDER_ID', SENDER_ID);
-   console.log('File: notify.js - L: 47 - API_KEY', process.env.API_KEY);
+   console.log('File: notify.js - L: 47 - API_KEY', API_KEY);
     if (COLOR && SENDER_ID) {
         notificationData['customizes'] = {
             backgroundColor: {
