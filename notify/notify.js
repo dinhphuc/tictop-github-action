@@ -46,7 +46,7 @@ const pushNotificationToTictop = async () => {
     }
     console.log('File: notify.js - L: 47 - COLOR', COLOR);
     console.log('File: notify.js - L: 47 - SENDER_ID', SENDER_ID);
-
+   console.log('File: notify.js - L: 47 - API_KEY', process.env.API_KEY);
     if (COLOR && SENDER_ID) {
         notificationData['customizes'] = {
             backgroundColor: {
