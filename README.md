@@ -102,7 +102,7 @@ Add color:
 | #22c55e | ![#22c55e](https://via.placeholder.com/15/22c55e/000000?text=+) |                                            
 | #4cb273 | ![#4cb273](https://via.placeholder.com/15/4cb273/000000?text=+) |                                            
 | #20cef5 | ![#20cef5](https://via.placeholder.com/15/20cef5/000000?text=+) |                                            
-| #0183ff | ![#baea9e](https://via.placeholder.com/15/baea9e/000000?text=+) |                                            
+| #0183ff | ![#0183ff](https://via.placeholder.com/15/0183ff/000000?text=+) |                                            
 | #7746ff | ![#7746ff](https://via.placeholder.com/15/7746ff/000000?text=+) |                                            
 | #ffc400 | ![#ffc400](https://via.placeholder.com/15/ffc400/000000?text=+) |                                            
 | #ff7e2a | ![#ff7e2a](https://via.placeholder.com/15/ff7e2a/000000?text=+) |                                            
