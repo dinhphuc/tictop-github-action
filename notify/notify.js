@@ -38,7 +38,8 @@ const pushNotificationToTictop = async () => {
                     imageUrl: `https://github.com/${process.env.GITHUB_ACTOR}.png`,
                     isPreview: true,
                     title: title
-                }
+                },
+                resourceIgnore: true
             }
         ],
         status: 0,
