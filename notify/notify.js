@@ -10,6 +10,19 @@ if (!API_KEY) {
     return console.error('API KEY is missing')
 }
 
+
+const replaceTemplateWithParams = (template, params) => {
+    let replaced = template || '';
+
+    Object.entries(params || {}).forEach(([key, val]) => {
+
+        if (params.hasOwnProperty(key)) {
+            replaced = replaced.replace(new RegExp(`{{${key}}}`, 'g'), val !== null ? val : '');
+        }
+    });
+    return replaced;
+}
+
 const pushNotificationToTictop = async () => {
 
     const commitMessage = process.env.COMMIT_MESSAGE || "";
@@ -25,7 +38,9 @@ const pushNotificationToTictop = async () => {
     if (commitMessage.endsWith("--msg")) {
         textMessage = `${textMessage} - ${commitMessage.replace('--msg', '')}`
     }
-
+    textMessage = replaceTemplateWithParams(textMessage, {
+        current_date: new Date().toLocaleString("en-US", {timeZone: "Asia/Ho_Chi_Minh"})
+    })
 
     const notificationData = {
         linkObjects: [
