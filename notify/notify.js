@@ -54,7 +54,7 @@ const pushNotificationToTictop = async () => {
                     isPreview: true,
                     title: title
                 },
-                // resourceIgnore: true
+                resourceIgnore: true
             }
         ],
         status: 0,
